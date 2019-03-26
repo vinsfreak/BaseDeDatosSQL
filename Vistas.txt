@@ -42,4 +42,9 @@ AS select salario, comision
 from empleados where dep_no="20"; 
 
 -----------------------------------------------------
+4. Crea la vista datos_vendedores que muestra solamente las columnas emp_no, apellido, director,
+fecha_alta, dep_no, de aquellos empleados cuyo oficio es VENDEDOR.
+
+CREATE VIEW datos_vendedores
+AS select emp_no, apellido, fecha_alta, dep_no from empleados where oficio="vendedor";
 

@@ -7,3 +7,13 @@ DROP VIEW nombrevista;
 
 ALTER VIEW nombrevista AS [ select...];
 Ejercicios Vistas:
+1. Crea la vista emple_dep30 para la gesti�n de los empleados del departamento 30.
+
+mysql> use ventas
+Database changed
+
+mysql>  CREATE VIEW emple_dep30
+    ->  AS select apellido, emp_no from empleados where dep_no="30";
+Query OK, 0 rows affected (0.58 sec)
+
+mysql>

@@ -34,4 +34,12 @@ from empleados;
 
 -----------------------------------------------------
 
+3. Crea a partir de la vista datos_emple, otra vista que permita acceder a los datos no
+confidenciales de los empleados del departamento de INVESTIGACION
+
+CREATE VIEW datos_emple_confidenciales
+AS select salario, comision
+from empleados where dep_no="20"; 
+
+-----------------------------------------------------
 

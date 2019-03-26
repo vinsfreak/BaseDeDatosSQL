@@ -24,3 +24,14 @@ mysql>
 
 
 ----------------------------------------------------
+2. Crea la vista datos_emple que contiene información de todos los empleados ocultando la
+información confidencial (mostrar número de empleado, apellido, oficio, director, fecha de alta
+y número de departamento).
+
+CREATE VIEW datos_emple 
+AS select emp_no, apellido, oficio, director, fecha_alta, dep_no 
+from empleados; 
+
+-----------------------------------------------------
+
+

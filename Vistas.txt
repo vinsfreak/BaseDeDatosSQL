@@ -1,1 +1,9 @@
+CREATE VIEW nombrevista
+AS  SELECT nombre
+FROM clientes
+WHERE cli_no="101";
+
+DROP VIEW nombrevista;
+
+ALTER VIEW nombrevista AS [ select...];
 Ejercicios Vistas:

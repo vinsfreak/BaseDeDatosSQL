@@ -1,0 +1,35 @@
+Los logs que entran al examen. (Estudiar a muerte puntos free).
+C:\ProgramData\MySQL\MySQL Server 5.6\my.ini
+Y los archivos:
+C:\ProgramData\MySQL\MySQL Server 5.6\data
+
+
+
+-Registro de errores o log_error: parada y arranque del servidor error mientras se está ejecutando.
+log-error=nombre.err
+
+
+-Registro general de consultas: conexiones a la bbdd mas las consultas realizadas (que y quien). (Todo lo que no modifique la bbdd)
+Hay que activarlo e indicarle un nombre
+general-log=1  si queremos que se ejecute
+general-log=”nombregeneral.log”  por defecto nombre de la máquina .log
+
+
+-Registro de actualizaciones o log binario.
+Guarda actualizaciones en la BBDD, inserciones, modificaciones y borrados.
+Tenemos datos sensibles en el servidor, o queremos guardar todas las modificaciones, etc…
+Preocupa el rendimiento pues hay que saber cual se ejecuta primero y que ha hecho un 1% de lentitud.
+Log-bin=”logbinario”
+Corresponde al índice en el que están los otros logs almacenados.
+Por eso no es .log
+La lista es algo así:
+Logbinario.000001
+Logbnario.000002
+Etc…
+No son .log ninguno
+
+
+-Consultas lentas. Que consultas tardan más que un tiempo que indicamos.
+slow-query-log=1   (activarlo)
+slow_query_log_file="fichero.log" (donde se guardan las consultas enteras)
+ long_query_time=10  (segundos a partir de los cuales la consulta es lenta)

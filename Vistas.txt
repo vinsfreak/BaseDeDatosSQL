@@ -39,7 +39,7 @@ confidenciales de los empleados del departamento de INVESTIGACION
 
 CREATE VIEW datos_emple_investigacion
 AS select *
-from datos_emple where dep_no="20"; 
+from datos_emple where dep_no=(select dep:no from departamento where dnombre="INVESTIGACION"); 
 
 -----------------------------------------------------
 4. Crea la vista datos_vendedores que muestra solamente las columnas emp_no, apellido, director,

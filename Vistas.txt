@@ -38,8 +38,7 @@ from empleados;
 confidenciales de los empleados del departamento de INVESTIGACION
 
 CREATE VIEW datos_emple_investigacion
-AS select *
-from datos_emple where dep_no=(select dep:no from departamento where dnombre="INVESTIGACION"); 
+AS select * from datos_emple where dep_no=(select dep_no from departamentos where dnombre="INVESTIGACION"); 
 
 -----------------------------------------------------
 4. Crea la vista datos_vendedores que muestra solamente las columnas emp_no, apellido, director,
@@ -60,3 +59,12 @@ mysql> select apellido from datos_emple where dep_no="20";;
 +----------+
 2 rows in set (0.08 sec)
 ----------------------------------------------------------
+6. Calcula la suma de los valores medios de los salarios de los empelados de cada uno de los
+departamentos utilizando vistas.
+#Cuando usamos suma nunca puede aplciarse en el mismo sitio.
+
+CREATE VIEW media_salario AS
+SELECT dep_no, AVG(salario) as media FROM empleados
+GROUP BY dep_no;
+
+CREATE VIEW media AS SELECT SUM(media) FROM media_salarios;

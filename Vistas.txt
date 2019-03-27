@@ -17,7 +17,7 @@ mysql> use ventas
 Database changed
 
 mysql>  CREATE VIEW emple_dep30
-    ->  AS select apellido, emp_no from empleados where dep_no="30";
+    ->  AS select * from empleados where dep_no="30";
 Query OK, 0 rows affected (0.58 sec)
 
 mysql>
@@ -37,9 +37,9 @@ from empleados;
 3. Crea a partir de la vista datos_emple, otra vista que permita acceder a los datos no
 confidenciales de los empleados del departamento de INVESTIGACION
 
-CREATE VIEW datos_emple_confidenciales
-AS select salario, comision
-from empleados where dep_no="20"; 
+CREATE VIEW datos_emple_investigacion
+AS select *
+from datos_emple where dep_no="20"; 
 
 -----------------------------------------------------
 4. Crea la vista datos_vendedores que muestra solamente las columnas emp_no, apellido, director,
@@ -47,4 +47,16 @@ fecha_alta, dep_no, de aquellos empleados cuyo oficio es VENDEDOR.
 
 CREATE VIEW datos_vendedores
 AS select emp_no, apellido, fecha_alta, dep_no from empleados where oficio="vendedor";
-
+
+------------------------------------------------------
+5. Visualiza a partir de la vista datos_emple los datos no confidenciales de los empleados del
+departamento de INVESTIGACION. Selecciona solo algunas columnas.
+mysql> select apellido from datos_emple where dep_no="20";;
++----------+
+| apellido |
++----------+
+| GIL      |
+| JIMENEZ  |
++----------+
+2 rows in set (0.08 sec)
+----------------------------------------------------------

@@ -63,8 +63,29 @@ mysql> select apellido from datos_emple where dep_no="20";;
 departamentos utilizando vistas.
 #Cuando usamos suma nunca puede aplciarse en el mismo sitio.
 
+
+
 CREATE VIEW media_salario AS
 SELECT dep_no, AVG(salario) as media FROM empleados
 GROUP BY dep_no;
 
 CREATE VIEW media AS SELECT SUM(media) FROM media_salarios;
+-----------------------------------------------------------
+7. Crear una vista del código, el nombre y la ciudad de los proveedores de París.
+
+CREATE VIEW proveedores_paris AS
+SELECT cprov, nombre, ciudad FROM proveedores
+WHERE ciudad='paris';
+
+-------------------------------------------------------------
+8. Calcula el valor mínimo de las medias de los envíos de cada uno de los proveedores utilizando
+vistas.
+
+CREATE VIEW cant_promedio
+SELECT cprov, AVG(cant) as media
+FROM envios
+GROUP BY cprov;
+
+CREATE VIEW media AS SELECT min(media)
+FROM cant_promedio;
+
